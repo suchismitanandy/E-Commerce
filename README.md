@@ -55,6 +55,17 @@ Success Response – 200 OK
   "price": 69999
 }
 
+Implementation Details
+-----------------------
+1. In-Memory Storage
+2. Items are stored in an ArrayList
+3. No database is used
+4. Data will be lost when the application restarts
+
+ID Generation
+---------------
+Each item is assigned a unique ID using AtomicLong
+
 Input Validation Rules
 -------------------------
 Field	Rule
@@ -69,14 +80,14 @@ Validation Error Example (400 Bad Request)
   "price": "Price must be greater than 0"
 }
 
-Implementation Details
-------------------------
-1. In-Memory Data Storage
-2. Products are stored in a Java ArrayList
-3. No external database is used
 
-API endpoints after being live:
+API endpoints after being live
+-----------------------------------------
+URL 
+--------------------
+https://e-commerce-application-1p4m.onrender.com
 
-POST https://E-Commerce.onrender.com/api/products
-GET  https://E-Commerce.onrender.com/api/products/{id}
+POST https://e-commerce-application-1p4m.onrender.com/api/products
+GET  https://e-commerce-application-1p4m.onrender.com/api/products/{id}
+
 
