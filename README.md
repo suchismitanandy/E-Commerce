@@ -1,7 +1,7 @@
 Features
 --------------
 1. Add a new Product
-2. Retrieve an product by ID
+2. Retrieve a product by ID
 3. Input validation with meaningful error responses
 4. In-memory storage (no database required)
 
