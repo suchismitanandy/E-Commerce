@@ -1,17 +1,10 @@
-# Use official Java runtime
-FROM eclipse-temurin:17-jdk-alpine
-
-# Set working directory
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-
-# Copy Maven wrapper and project files
 COPY . .
+RUN mvn clean package -DskipTests
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
-
-# Expose the port Render provides
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Run the jar file
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/app/app.jar"]
